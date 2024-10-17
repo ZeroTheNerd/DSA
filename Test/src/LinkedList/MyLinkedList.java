@@ -25,6 +25,23 @@ public class MyLinkedList {
     }
 
     public void prepend(int value) {
+        Node newNode = new Node(value);
+        if(length == 0) {
+            head = newNode;
+            tail = newNode;
+        } else {
+
+            Node temp = head.next;
+            head = newNode;
+            head.next = temp;
+            //OR
+            ///newNode.next = head;
+            //head = newNode
+        }
+        length++;
+
+
+
         //create a new node
         //add node to beginning
     }
