@@ -29,5 +29,8 @@ public class Main {
         ll.printList();
         System.out.println("Node value at index 1");
         System.out.println(ll.get(1).value);
+        System.out.println("Set 56 --> 9");
+        ll.set(1, 9);
+        ll.printList();
     }
 }

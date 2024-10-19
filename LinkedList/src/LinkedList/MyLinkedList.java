@@ -94,6 +94,18 @@ public class MyLinkedList {
         return temp;
     }
 
+    public boolean set(int index, int value) {
+        if(length < index || length == 0) {
+            return false;
+        }
+        Node temp = get(index);
+        if(temp != null) {
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
     public void getHead() {
         System.out.println("Head: " + head.value);
     }
