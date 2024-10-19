@@ -20,7 +20,14 @@ public class Main {
         ll.printList();
 
         ll.removeFirst();
-        System.out.println("Remove First - ");
+        System.out.println("Remove First");
         ll.printList();
+
+        ll.append(56);
+        ll.append(8);
+        System.out.println("List at current time");
+        ll.printList();
+        System.out.println("Node value at index 1");
+        System.out.println(ll.get(1).value);
     }
 }
