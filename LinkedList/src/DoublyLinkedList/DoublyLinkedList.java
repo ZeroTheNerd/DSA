@@ -159,6 +159,16 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public void swapFirstLast() {
+        if(length == 0 || length == 1) {
+            return;
+        }
+        int temp = head.value;
+        head.value = tail.value;
+
+        tail.value = temp;
+    }
+
 
     public void printList() {
         Node temp = head;
