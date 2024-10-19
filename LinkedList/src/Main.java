@@ -1,3 +1,5 @@
+import LinkedList.MyLinkedList;
+
 import java.util.HashMap;
 
 public class Main {
@@ -22,6 +24,12 @@ public class Main {
         System.out.println(map1);
         map1.put("value", 15);
         System.out.println(map2);
+
+
+//        MyLinkedList linkedList = new MyLinkedList(2);
+//        linkedList.prepend(3);
+//
+//        linkedList.printList();
 
     }
 }

@@ -13,6 +13,14 @@ public class Main {
 
         ll.removeLast();
 
+       // ll.printList();
+
+        ll.prepend(2);
+
+        ll.printList();
+
+        ll.removeFirst();
+        System.out.println("Remove First - ");
         ll.printList();
     }
 }

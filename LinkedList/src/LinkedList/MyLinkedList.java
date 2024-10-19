@@ -25,23 +25,21 @@ public class MyLinkedList {
     }
 
     public void prepend(int value) {
+        //create a new node
+        //add node to beginning
         Node newNode = new Node(value);
         if(length == 0) {
             head = newNode;
             tail = newNode;
         } else {
-
-            Node temp = head.next;
-            head = newNode;
-            head.next = temp;
+//            Node temp = head.next;
+//            head = newNode;
+//            head.next = temp;
             //OR
-            ///newNode.next = head;
-            //head = newNode
+            newNode.next = head;
+            head = newNode;
         }
         length++;
-
-        //create a new node
-        //add node to beginning
     }
 
     public boolean insert(int index, int value) {
@@ -67,6 +65,21 @@ public class MyLinkedList {
             head = null;
             tail = null;
         }
+        return temp;
+    }
+
+    public Node removeFirst() {
+        if(length == 1) {
+            head = null;
+            tail = null;
+        }
+        if(length == 0) {
+            return null;
+        }
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+        length--;
         return temp;
     }
 
