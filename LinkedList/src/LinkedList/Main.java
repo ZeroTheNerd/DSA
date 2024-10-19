@@ -40,5 +40,9 @@ public class Main {
         System.out.println("Removing value index 3");
         ll.remove(3);
         ll.printList();
+
+        System.out.println("Reversing LinkedList");
+        ll.reverse();
+        ll.printList();
     }
 }
