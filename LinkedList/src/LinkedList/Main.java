@@ -36,5 +36,9 @@ public class Main {
         System.out.println("Inserting value 5 at index 3");
         ll.insert(3, 5);
         ll.printList();
+
+        System.out.println("Removing value index 3");
+        ll.remove(3);
+        ll.printList();
     }
 }
