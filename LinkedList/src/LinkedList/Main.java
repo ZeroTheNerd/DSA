@@ -32,5 +32,9 @@ public class Main {
         System.out.println("Set 56 --> 9");
         ll.set(1, 9);
         ll.printList();
+
+        System.out.println("Inserting value 5 at index 3");
+        ll.insert(3, 5);
+        ll.printList();
     }
 }

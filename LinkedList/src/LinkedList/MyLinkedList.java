@@ -41,13 +41,6 @@ public class MyLinkedList {
         }
         length++;
     }
-
-    public boolean insert(int index, int value) {
-        //create new node
-        ///insert Node
-        return true;
-    }
-
     public Node removeLast() {
         if(length == 0) {
             return null;
@@ -94,6 +87,7 @@ public class MyLinkedList {
         return temp;
     }
 
+
     public boolean set(int index, int value) {
         if(length < index || length == 0) {
             return false;
@@ -104,6 +98,27 @@ public class MyLinkedList {
             return true;
         }
         return false;
+    }
+
+    public boolean insert(int index, int value) {
+        if(index < 0 || index > length) {
+            return false;
+        }
+        if(index == 0) {
+            prepend(value);
+            return true;
+        }
+        if(index == length) {
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
+
     }
 
     public void getHead() {
