@@ -40,8 +40,6 @@ public class MyLinkedList {
         }
         length++;
 
-
-
         //create a new node
         //add node to beginning
     }
