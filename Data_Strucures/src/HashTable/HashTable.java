@@ -8,10 +8,7 @@ package HashTable;
 //    "next"= null
 //  }"
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class HashTable {
     public int size = 7;
@@ -131,5 +128,53 @@ public class HashTable {
         }
         return null;
 
+    }
+
+    public List<List<String>> groupAnagrams(String[] strings) {
+        Map<String, List<String>> anagramGroups = new HashMap<>();
+        for(String s : strings) {
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            String canonical = new String(chars);
+            if(anagramGroups.containsKey(canonical)) {
+                anagramGroups.get(canonical).add(s);
+            } else {
+                List<String> groups = new ArrayList<>();
+                groups.add(s);
+                anagramGroups.put(canonical, groups);
+            }
+
+        }
+        return new ArrayList<>(anagramGroups.values());
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> numMap = new HashMap<>();
+
+        for(int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            int complement = target - num;
+            if(numMap.containsKey(complement)) {
+                return new int[]{numMap.get(complement), i};
+            }
+            numMap.put(num, i);
+        }
+        return new int[]{};
+
+    }
+
+    public int[] subarraySum(int[] nums, int target) {
+        Map<Integer, Integer> myMap = new HashMap<>();
+        myMap.put(0, -1);
+        int curSum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            curSum += nums[i];
+            if(myMap.containsKey(curSum - target)) {
+                return new int[] {myMap.get(curSum - target) + 1, i};
+            }
+
+            myMap.put(curSum, i);
+        }
+        return new int[]{};
     }
 }
