@@ -43,6 +43,7 @@ public class HashTable {
         char[] keyChars = key.toCharArray();
         for(int i = 0; i < keyChars.length; i++) {
             int asciiVal = keyChars[i];
+            //Multiply by prime number for more randomness
             hash = (hash + asciiVal * 23) % dataMap.length;
         }
         return hash;
@@ -61,5 +62,17 @@ public class HashTable {
             }
             temp.next = newNode;
         }
+    }
+
+    public int get(String key) {
+        int index = hash(key);
+        Node temp = dataMap[index];
+        while(temp != null) {
+            if (temp.key == key) {
+                return temp.value;
+            }
+            temp = temp.next;
+        }
+        return 0;
     }
 }
