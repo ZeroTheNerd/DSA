@@ -8,6 +8,7 @@ package HashTable;
 //    "next"= null
 //  }"
 
+import java.sql.Array;
 import java.util.*;
 
 public class HashTable {
@@ -176,5 +177,69 @@ public class HashTable {
             myMap.put(curSum, i);
         }
         return new int[]{};
+    }
+
+    public List<Integer> removeDuplicates(List<Integer> myList) {
+        Set<Integer> mySet = new HashSet<>();
+        for(int num : myList) {
+            mySet.add(num);
+        }
+        List<Integer> list = new ArrayList<>();
+        for(int num : mySet) {
+            list.add(num);
+        }
+
+        return list;
+
+    }
+
+
+    public static boolean hasUniqueChars(String s) {
+        Set<Character> mySet = new HashSet<>();
+        for (char c : s.toCharArray()) {
+            mySet.add(c);
+        }
+        if (mySet.size() != s.toCharArray().length) {
+            return false;
+        }
+        return true;
+    }
+
+    public static List<int[]> findPairs(int[] arr1, int[] arr2, int target) {
+        Set<Integer> mySet = new HashSet<>();
+        List<int[]> list = new ArrayList<>();
+        for(int num : arr1) {
+            mySet.add(num);
+        }
+        for(int i = 0; i < arr2.length; i++) {
+            int complement = target - arr2[i];
+            if(mySet.contains(complement)) {
+                int[] arr = {arr2[i], complement};
+                list.add(arr);
+            }
+        }
+        return list;
+    }
+
+    public static int longestConsecutiveSequence(int[] nums) {
+        Set<Integer> mySet = new HashSet<>();
+        int length = 0;
+        for (int num : nums) {
+            mySet.add(num);
+        }
+
+        for (int num : nums) {
+            if (!mySet.contains(num - 1)) {
+                int curNum = num;
+                int curSteak = 1;
+                while (mySet.contains(curNum + 1)) {
+                    curSteak++;
+                    curNum++;
+                }
+
+                length = Math.max(curSteak, length);
+            }
+        }
+        return length;
     }
 }
